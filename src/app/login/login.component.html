@@ -1,0 +1,53 @@
+<div class="mainPanel">
+  <div class="logoHeader">
+    <div class="firstWord">Choice</div>
+    <div class="secondWord">Tech</div>
+    <div class="thirdWord">Lab</div>
+  </div>
+  <div>
+    <div class="mainLogin">
+      <div class="header">
+        Login to your account
+      </div>
+      <form [formGroup]="userDetailsForm" (ngSubmit)="onSubmitUserDetails(userDetailsForm.value)">
+        <div class=" rightRegisterBox">
+          <div class="row">
+            <div class=" ui-g-1 col-md-1 col-lg-1">
+              <span class="ui-inputgroup-addon"><i class="fa fa-at fa-2x"></i></span>
+            </div>
+            <div class="ui-g-6 col-md-6 col-lg-6"> <input type="email" formControlName="emailID" pInputText
+                placeholder="Email" required></div>
+            <div class="row">
+              <div *ngFor="let validation of account_validation_messages.emailID">
+                <div class="error-message"
+                  *ngIf="userDetailsForm.get('emailID').hasError(validation.type) && (userDetailsForm.get('emailID').dirty || userDetailsForm.get('emailID').touched)">
+                  {{validation.message}}</div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class=" ui-g-1 col-md-1 col-lg-1">
+              <span class="ui-inputgroup-addon"><i class="fa fa-unlock-alt fa-2x"></i></span>
+            </div>
+            <div class="ui-g-6 col-md-6 col-lg-6"><input type="password" pInputText placeholder="Password"
+                formControlName="password" required></div>
+            <div class="row">
+              <div *ngFor="let validation of account_validation_messages.password">
+                <div class="error-message"
+                  *ngIf="userDetailsForm.get('password').hasError(validation.type) && (userDetailsForm.get('password').dirty || userDetailsForm.get('password').touched)">
+                  {{validation.message}}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <button class="btn btn-success" [disabled]="!userDetailsForm.valid">Login</button>
+        </div>
+        {{messageLogin}}
+        <div class="row" >
+          <a  routerLink="/register" routerLinkActive="active">wanna register??</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

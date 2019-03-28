@@ -1,0 +1,71 @@
+<div class="registerMain">
+  <div class="mainPanel">
+    <div class="logoHeader">
+      <div class="firstWord">Choice</div>
+      <div class="secondWord">Tech</div>
+      <div class="thirdWord">Lab</div>
+    </div>
+    <div>
+      <div class="mainLogin">
+        <div class="header">
+          Create a new Account
+        </div>
+        <form [formGroup]="userRegisterForm"
+          (ngSubmit)="onSubmitRegisterDetails(userRegisterForm.value)">
+          <div class=" rightRegisterBox">
+            <div class="row">
+              <div class="ui-md-offset-1 ui-g-offset-1 ui-lg-offset-1 ui-g-1 col-md-1 col-lg-1">
+                <span class="ui-inputgroup-addon"><i class="fa fa-user fa-2x"></i></span>
+              </div>
+              <div class="ui-g-5 col-md-5 col-lg-5"><input type="text" pInputText placeholder="Full Name"
+                  formControlName="fullName" required></div>
+
+              <div class="ui-g-5 col-md-5 col-lg-5">
+                <div *ngFor="let validation of account_validation_messages.fullName">
+                  <div class="error-message"
+                    *ngIf="userRegisterForm.get('fullName').hasError(validation.type) && (userRegisterForm.get('fullName').dirty || userRegisterForm.get('fullName').touched)">
+                    {{validation.message}}</div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="ui-md-offset-1 ui-g-offset-1 ui-lg-offset-1 ui-g-1 col-md-1 col-lg-1">
+                <span class="ui-inputgroup-addon"><i class="fa fa-at fa-2x"></i></span>
+              </div>
+              <div class="ui-g-5 col-md-5 col-lg-5"> <input type="email" formControlName="emailID" pInputText
+                  placeholder="Email" required></div>
+              <div class="ui-g-5 col-md-5 col-lg-5">
+                <div *ngFor="let validation of account_validation_messages.emailID">
+                  <div class="error-message"
+                    *ngIf="userRegisterForm.get('emailID').hasError(validation.type) && (userRegisterForm.get('emailID').dirty || userRegisterForm.get('emailID').touched)">
+                    {{validation.message}}</div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="ui-md-offset-1 ui-g-offset-1 ui-lg-offset-1 ui-g-1 col-md-1 col-lg-1">
+                <span class="ui-inputgroup-addon"><i class="fa fa-unlock-alt fa-2x"></i></span>
+              </div>
+              <div class="ui-g-5 col-md-5 col-lg-5"><input type="password" pInputText placeholder="Password"
+                  formControlName="password" required></div>
+              <div class="ui-g-5 col-md-5 col-lg-5">
+                <div *ngFor="let validation of account_validation_messages.password">
+                  <div class="error-message"
+                    *ngIf="userRegisterForm.get('password').hasError(validation.type) && (userRegisterForm.get('password').dirty || userRegisterForm.get('password').touched)">
+                    {{validation.message}}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <button class="btn btn-danger" [disabled]="!userRegisterForm.valid">Register</button>
+          </div>
+          {{dataSaved}}
+          <div class="row">
+            <a routerLink="/login" routerLinkActive="active">wanna login??</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

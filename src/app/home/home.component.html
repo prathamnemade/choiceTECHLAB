@@ -1,0 +1,42 @@
+<button type="button" class="btn btn-warning" style="float:right;margin:20px" (click)="logoutDummy()">Logout</button>
+
+<div style="margin:50px">
+  <div class="row">
+    <h3>Hi ,</h3>
+  </div>
+  <br>
+  <h4>{{userName}}</h4>
+</div>
+<div class="modal-content" *ngIf="localDataService.sessionTimeCount">
+  Alert !!! Be active please!!
+  <h1>{{localDataService.sessionTimeCount}}</h1>
+</div>
+<div class="modal-content" *ngIf="triggerpopoup">
+  <h1>Do you really want to logout ? </h1>
+  <button (click)="logout()" class="btn btn-success">Yes</button>
+  <button (click)="triggerpopoup=!triggerpopoup" class="btn btn-danger">No</button>
+</div>
+
+
+<div class="row">
+  <div class="col-md-6">
+    <input type="text" [(ngModel)]="valueToAdd">
+    <button (click)="addTOadd()" [disabled]="!valueToAdd">Add to an array</button>
+    {{localDataService.addArray|json}}
+
+    <br><br>
+    Filter by :
+    <input type="text" [(ngModel)]="filterText" (keyup)="filterdata()">
+    Output :
+    {{filteredList.length==0?'No Data Found':filteredList}}
+
+
+  </div>
+  <div class="col-md-6">
+    <button (click)="interceptors()" class="btn">Click on me!!</button>
+    <div class="row" *ngIf="loading">Loading... </div>
+    <h5> {{results.ip}}</h5>
+  </div>
+
+
+</div>

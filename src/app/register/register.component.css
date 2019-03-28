@@ -1,0 +1,72 @@
+.mainPanel {
+    width: 700px;
+    text-align: center;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    height: fit-content;
+}
+
+.registerMain {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    position: absolute;
+}
+
+.firstWord, .secondWord ,.thirdWord{
+    display: inline;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 58px;
+}
+
+.firstWord {
+    background: yellow;
+}
+
+.secondWord {
+    background: green;
+}
+
+.mainLogin {
+    border: 1px solid black;
+    height: auto;
+}
+
+button {
+    border: 0;
+    margin: 15px;
+    margin-left: 45%;
+}
+
+a {
+    margin: 5px;
+    margin-left: 65%;
+}
+
+.error-message {
+    color: red;
+    font-size: 15px;
+}
+
+.header {
+    font-family: "Lucida Console", Monaco, monospace;
+    font-size: 25px;
+}
+
+input {
+    width: 100%;
+}
+
+.errorBlock{
+    border: 1px solid;
+    position: absolute;
+    margin-left: 414px;
+    width: 42%;
+}
+.thirdWord{
+    background: bisque;
+}
